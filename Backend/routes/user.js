@@ -7,6 +7,17 @@ router.get('/', async (req, res) => {
     res.status(200).json(users);
 });
 
+
+router.get('/:id', async (req, res) => {
+    const users = await User.findAll({
+        where: {
+            id: req.params.id
+        }
+    });
+    res.status(200).json(users)
+});
+
+
 router.post('/', async (req, res) => {
     const users = await User.create({
         username: req.body.username,
@@ -28,12 +39,12 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-    const users = await User.destroy(req.body, {
+    const users = await User.destroy({
         where: {
-        id: req.params.id,
+        id: req.params.id
         }
     });
-    res.status(200).json(users)
+    res.status(200).json('Usuário deletado com sucesso!')
 });
 
 module.exports = router;
