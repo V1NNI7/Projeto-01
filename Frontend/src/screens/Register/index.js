@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import classes from './register.module.css';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api'
+import GlobalMenu from '../../components/GlobalMenu';
 
 const Register = () => {
     const history = useHistory();
@@ -11,13 +12,13 @@ const Register = () => {
         initialValues: {
             name: '',
             email: '',
-            user: '',
+            username: '',
             password: '',
         },
         validationSchema: Yup.object({
             name: Yup.string().required(' Obrigatório'),
             email: Yup.string().email(' E-mail inválido').required('Obrigatório'),
-            user: Yup.string().required(' Obrigatório'),
+            username: Yup.string().required(' Obrigatório'),
             password: Yup.string().matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
                 "Senha Fraca").required(' Obrigatório'),
         }),
@@ -28,7 +29,7 @@ const Register = () => {
                     email: values.email,
                     senha: values.password,
                     name: values.name,
-                    usuario: values.user,
+                    username: values.username,
                 };
                 const response = await api.post('users', user);
                 if (response.data) {
@@ -43,13 +44,15 @@ const Register = () => {
 
     return (
         <>
-            <body>
-                <main>
+            <GlobalMenu />
+            <body className={`${classes.body}`}>
+                <main className={`container ${classes.main}`}>
                     <h2>Cadastro!</h2>
-                    <form onSubmit={formik.handleSubmit}>
+                    <form onSubmit={formik.handleSubmit} className={`${classes.form}`}>
                         <div>
                             <label htmlFor="name">Nome completo: </label>
                             <input
+                                className={`${classes.fieldInput}`}
                                 id="name"
                                 name="name"
                                 type="text"
@@ -58,12 +61,13 @@ const Register = () => {
                                 onBlur={formik.handleBlur}
                                 value={formik.values.name}
                             />
-                            {formik.touched.name && formik.errors.name ? <label htmlFor="name" >{formik.errors.name}</label> : null}
+                            {formik.touched.name && formik.errors.name ? <label htmlFor="name" className={`${classes.error}`} ><strong>{formik.errors.name}</strong></label> : null}
                         </div>
 
                         <div>
                             <label htmlFor="email">E-mail: </label>
                             <input
+                                className={`${classes.fieldInput}`}
                                 id="email"
                                 name="email"
                                 type="text"
@@ -72,27 +76,29 @@ const Register = () => {
                                 onBlur={formik.handleBlur}
                                 value={formik.values.email}
                             />
-                            {formik.touched.email && formik.errors.email ? <label htmlFor="email" >{formik.errors.email}</label> : null}
+                            {formik.touched.email && formik.errors.email ? <label htmlFor="email" className={`${classes.error}`} ><strong>{formik.errors.name}</strong></label> : null}
 
                         </div>
 
                         <div>
-                            <label htmlFor="user">Usuário: </label>
+                            <label htmlFor="username">Usuário: </label>
                             <input
-                                id="user"
-                                name="user"
+                                className={`${classes.fieldInput}`}
+                                id="username"
+                                name="username"
                                 type="text"
                                 placeholder="Insira um nome de usuário"
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
-                                value={formik.values.user}
+                                value={formik.values.username}
                             />
-                            {formik.touched.user && formik.errors.user ? <label htmlFor="user" >{formik.errors.user}</label> : null}
+                            {formik.touched.username && formik.errors.username ? <label htmlFor="username" className={`${classes.error}`} ><strong>{formik.errors.name}</strong></label> : null}
                         </div>
 
                         <div>
                             <label htmlFor="password">Senha: </label>
                             <input
+                                className={`${classes.fieldInput}`}
                                 id="password"
                                 name="password"
                                 type="password"
@@ -101,10 +107,10 @@ const Register = () => {
                                 onBlur={formik.handleBlur}
                                 value={formik.values.password}
                             />
-                            {formik.touched.password && formik.errors.password ? <label htmlFor="password" >{formik.errors.password}</label> : null}
+                            {formik.touched.password && formik.errors.password ? <label htmlFor="password" className={`${classes.error}`} ><strong>{formik.errors.name}</strong></label> : null}
 
                         </div>
-                        <button type="submit" name="submit" id="submit">Enviar</button>
+                        <button className={`${classes.button}`} type="submit" name="submit" id="submit">Enviar</button>
                     </form>
                 </main>
             </body>

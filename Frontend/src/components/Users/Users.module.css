@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+
+.body {
+    list-style-type: none;
+    justify-content: center;
+    display: flex;
+}
+
+.userslist {
+    background-color: rgb(138, 138, 138);
+    color: black;
+    width: 40vw;
+    height: 30vh;
+}
+
+.button {
+    color: white !important;
+    padding: 4px;
+    margin-left: 20px;
+    border-style: none;
+    background-color: #dd4a4a;
+    border-radius: 8px;
+}

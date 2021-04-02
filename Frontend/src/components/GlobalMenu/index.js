@@ -9,6 +9,8 @@ function GlobalMenu() {
             <Link to="/">Home</Link>
             <Link to="/register">Cadastro</Link>
             <Link to="/Login">Login</Link>
+            <Link to="/Home">Página Principal</Link>
+            <Link to="/userslist">Lista de usuários</Link>
         </nav>
     );
 }

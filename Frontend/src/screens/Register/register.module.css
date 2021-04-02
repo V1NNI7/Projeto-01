@@ -1,3 +1,52 @@
   @charset "utf-8";
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
   
-  
+  .body {
+    background-color: black;
+    height: 100vh;
+  }
+
+  .main {
+    background-color: #999;
+    width: 60vw;
+    padding: 2%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    line-height: 2.8rem;
+  }
+
+  .fieldInput {
+    width: 100%;
+    outline: none;
+  }
+
+  .form input {
+    background-color: #999;
+    border: 3px;
+    border-color: rgb(0, 0, 0);
+    color: #000000;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100px;
+    border: none;
+    border-radius: 8px;
+    padding: 0 0;
+  }
+
+  .error {
+    color: #000000;
+  }
+
+  input:-webkit-autofill {
+    box-shadow: 0 0 0 30px #999 inset;
+}
+
+  input:-webkit-autofill {
+    -webkit-text-fill-color: #000;
+}

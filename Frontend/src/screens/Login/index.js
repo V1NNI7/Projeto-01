@@ -4,6 +4,7 @@ import classes from './login.module.css';
 import * as Yup from 'yup';
 import { useHistory, Link } from 'react-router-dom';
 import api from '../../services/api';
+import GlobalMenu from '../../components/GlobalMenu';
 
 
 const Login = () => {
@@ -36,7 +37,7 @@ const Login = () => {
                 };
                 const response = await api.post('/login', login);
                 if (response.data) {
-                    history.push('/filmslist')
+                    history.push('/userslist')
                 }
 
             } catch (error) {
@@ -47,7 +48,7 @@ const Login = () => {
 
     return (
         <>
-
+            <GlobalMenu />
             <body>
                 <main>
                     <h2>Login!</h2>
@@ -79,7 +80,7 @@ const Login = () => {
                             />
                             {formik.touched.senha && formik.errors.senha ? <label htmlFor="senha">{formik.errors.senha}</label> : null}
                         </div>
-                        <button type="submit" value="Continue"></button>
+                        <button type="submit">Enviar</button>
                     </form>
                 </main>
             </body>
