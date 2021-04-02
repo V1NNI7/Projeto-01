@@ -7,7 +7,7 @@ import Home from './screens/Home'
 import Login from './screens/Login'
 import loginHome from './screens/Login_Home'
 import userslist from './screens/Users'
-import welcome from './components/Welcome'
+import Error from './screens/Error'
 
 
 /* const App = () => {
@@ -36,6 +36,7 @@ export class App extends React.Component {
           <Route path="/login" component={Login} />
           <Route path="/home" component={loginHome} />
           <Route path="/userslist" component={userslist} />
+          <Route path="/errorpage" component={Error} />
         </Switch>
       </BrowserRouter>
       );

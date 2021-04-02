@@ -27,7 +27,7 @@ const Register = () => {
             try {
                 const user = {
                     email: values.email,
-                    senha: values.password,
+                    password: values.password,
                     name: values.name,
                     username: values.username,
                 };
@@ -46,8 +46,9 @@ const Register = () => {
         <>
             <GlobalMenu />
             <body className={`${classes.body}`}>
-                <main className={`container ${classes.main}`}>
-                    <h2>Cadastro!</h2>
+                <main className={`${classes.main}`}>
+                    <h2 className={`text-center`}>Cadastro</h2>
+                    <hr className={`divisor mt-4 mb-4`} />
                     <form onSubmit={formik.handleSubmit} className={`${classes.form}`}>
                         <div>
                             <label htmlFor="name">Nome completo: </label>
@@ -61,7 +62,7 @@ const Register = () => {
                                 onBlur={formik.handleBlur}
                                 value={formik.values.name}
                             />
-                            {formik.touched.name && formik.errors.name ? <label htmlFor="name" className={`${classes.error}`} ><strong>{formik.errors.name}</strong></label> : null}
+                            {formik.touched.name && formik.errors.name ? <label htmlFor="name" className={`${classes.error}`} >{formik.errors.name}</label> : null}
                         </div>
 
                         <div>
@@ -76,7 +77,7 @@ const Register = () => {
                                 onBlur={formik.handleBlur}
                                 value={formik.values.email}
                             />
-                            {formik.touched.email && formik.errors.email ? <label htmlFor="email" className={`${classes.error}`} ><strong>{formik.errors.name}</strong></label> : null}
+                            {formik.touched.email && formik.errors.email ? <label htmlFor="email" className={`${classes.error}`} >{formik.errors.email}</label> : null}
 
                         </div>
 
@@ -92,7 +93,7 @@ const Register = () => {
                                 onBlur={formik.handleBlur}
                                 value={formik.values.username}
                             />
-                            {formik.touched.username && formik.errors.username ? <label htmlFor="username" className={`${classes.error}`} ><strong>{formik.errors.name}</strong></label> : null}
+                            {formik.touched.username && formik.errors.username ? <label htmlFor="username" className={`${classes.error}`} >{formik.errors.username}</label> : null}
                         </div>
 
                         <div>
@@ -107,10 +108,10 @@ const Register = () => {
                                 onBlur={formik.handleBlur}
                                 value={formik.values.password}
                             />
-                            {formik.touched.password && formik.errors.password ? <label htmlFor="password" className={`${classes.error}`} ><strong>{formik.errors.name}</strong></label> : null}
+                            {formik.touched.password && formik.errors.password ? <label htmlFor="password" className={`${classes.error}`} >{formik.errors.password}</label> : null}
 
                         </div>
-                        <button className={`${classes.button}`} type="submit" name="submit" id="submit">Enviar</button>
+                        <button className={`mt-4 ${classes.button}`} type="submit" name="submit" id="submit">ENVIAR</button>
                     </form>
                 </main>
             </body>

@@ -5,10 +5,10 @@ const sha256 = require('js-sha256');
 const jwt = require('jsonwebtoken');
 
 router.post('/', async (req, res) => {
-    const result = await User.findAll(req.body, {
+    const result = await User.findAll({
         where: {
             email: req.body.email,
-            senha: sha256(req.body.senha + "!#@project")
+            password: sha256(req.body.password + "!#@project")
         }
     });
 

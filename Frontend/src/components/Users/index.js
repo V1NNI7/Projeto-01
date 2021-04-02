@@ -30,7 +30,6 @@ const ListUsers = (props) => {
                     <p><strong>Nome:</strong> {props.user.name}</p>
                     <p><strong>Nome de Usuário:</strong> {props.user.username}</p>
                     <p><strong>Email:</strong> {props.user.email}</p>
-                    <p><strong>Senha:</strong> {props.user.password}</p>
                     <div>
                         <button 
                         type="button" 
