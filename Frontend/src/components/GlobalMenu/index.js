@@ -12,6 +12,7 @@ const GlobalMenu = () => {
             <Link to="/Home">Página Principal</Link>
             <Link to="/UsersList">Lista de usuários</Link>
             <Link to="/errorpage">Página de Erro</Link>
+            <Link to="/new">Registro Novo</Link>
         </nav>
     );
 }

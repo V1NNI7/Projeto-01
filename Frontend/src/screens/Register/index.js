@@ -16,11 +16,11 @@ const Register = () => {
             password: '',
         },
         validationSchema: Yup.object({
-            name: Yup.string().required(' Obrigatório'),
-            email: Yup.string().email(' E-mail inválido').required('Obrigatório'),
-            username: Yup.string().required(' Obrigatório'),
+            name: Yup.string().required('*'),
+            email: Yup.string().email('E-mail inválido').required('*'),
+            username: Yup.string().required('*'),
             password: Yup.string().matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-                "Senha Fraca").required(' Obrigatório'),
+                "Senha fora dos requisitos!").required('*'),
         }),
 
         onSubmit: async (values) => {
@@ -48,16 +48,15 @@ const Register = () => {
             <body className={`${classes.body}`}>
                 <main className={`${classes.main}`}>
                     <h2 className={`text-center`}>Cadastro</h2>
-                    <hr className={`divisor mt-4 mb-4`} />
                     <form onSubmit={formik.handleSubmit} className={`${classes.form}`}>
                         <div>
-                            <label htmlFor="name">Nome completo: </label>
+                            <label htmlFor="name"></label>
                             <input
                                 className={`${classes.fieldInput}`}
                                 id="name"
                                 name="name"
                                 type="text"
-                                placeholder="Insira seu nome"
+                                placeholder="Nome completo"
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.name}
@@ -66,13 +65,13 @@ const Register = () => {
                         </div>
 
                         <div>
-                            <label htmlFor="email">E-mail: </label>
+                            <label htmlFor="email"></label>
                             <input
                                 className={`${classes.fieldInput}`}
                                 id="email"
                                 name="email"
                                 type="text"
-                                placeholder="Insira seu Email"
+                                placeholder="Endereço de Email"
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.email}
@@ -82,13 +81,13 @@ const Register = () => {
                         </div>
 
                         <div>
-                            <label htmlFor="username">Usuário: </label>
+                            <label htmlFor="username"></label>
                             <input
                                 className={`${classes.fieldInput}`}
                                 id="username"
                                 name="username"
                                 type="text"
-                                placeholder="Insira um nome de usuário"
+                                placeholder="Nome de usuário"
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.username}
@@ -97,13 +96,13 @@ const Register = () => {
                         </div>
 
                         <div>
-                            <label htmlFor="password">Senha: </label>
+                            <label htmlFor="password"></label>
                             <input
                                 className={`${classes.fieldInput}`}
                                 id="password"
                                 name="password"
                                 type="password"
-                                placeholder="Sua senha precisa conter 8 letras, caracteres especiais e números"
+                                placeholder="Senha contendo letras maiusculas e números"
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.password}
@@ -111,8 +110,10 @@ const Register = () => {
                             {formik.touched.password && formik.errors.password ? <label htmlFor="password" className={`${classes.error}`} >{formik.errors.password}</label> : null}
 
                         </div>
-                        <button className={`mt-4 ${classes.button}`} type="submit" name="submit" id="submit">ENVIAR</button>
+                        <button className={`mt-4 ${classes.button}`} type="submit" name="submit" id="submit">Cadastrar grátis</button>
                     </form>
+                    <hr className={`divisor mt-4 mb-4`} />
+                    <h1><Link to="/login">Fazer login</Link></h1>
                 </main>
             </body>
         </>

@@ -15,6 +15,7 @@ const Login = () => {
             errors.name = 'Obrigatório';
         }
         return errors;
+
     }
 
     const formik = useFormik({
@@ -51,16 +52,15 @@ const Login = () => {
             <body className={`${classes.body}`}>
                 <main className={`${classes.main}`}>
                     <h2 className={`text-center`}>Login</h2>
-                    <hr className={`divisor mt-2 mb-2`} />
                     <form onSubmit={formik.handleSubmit} className={`${classes.form}`}>
                         <div>
-                            <label htmlFor="email" className={classes.formTitle}>Email: </label>
+                            {/* <label htmlFor="email" className={classes.formTitle}>Email: </label> */}
                             <input
                                 className={`${classes.fieldInput}`}
                                 id="email"
                                 name="email"
                                 type="text"
-                                placeholder="Insira seu email"
+                                placeholder="Email"
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.email}
@@ -69,20 +69,22 @@ const Login = () => {
                         </div>
 
                         <div>
-                            <label htmlFor="password" className={classes.formTitle}>Senha: </label>
+                            {/* <label htmlFor="password" className={classes.formTitle}>Senha: </label> */}
                             <input
                                 className={`${classes.fieldInput}`}
                                 id="password"
                                 name="password"
                                 type="password"
-                                placeholder="Insira sua senha"
+                                placeholder="Senha"
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
-                                value={formik.values.senha}
+                                value={formik.values.password}
                             />
-                            {formik.touched.senha && formik.errors.senha ? <label htmlFor="password" className={`${classes.error}`}>{formik.errors.senha}</label> : null}
+                            {formik.touched.password && formik.errors.password ? <label htmlFor="password" className={`${classes.error}`}>{formik.errors.password}</label> : null}
                         </div>
-                        <button className={`mt-4 ${classes.button}`} type="submit">ENVIAR</button>
+                        <button className={`mt-4 ${classes.button}`} type="submit">Entrar</button>
+                            <hr className={`divisor mt-2 mb-2`} />
+                            <p>Não possui conta? <Link to="/register">Cadastre-se</Link> agora!</p>
                     </form>
                 </main>
             </body>

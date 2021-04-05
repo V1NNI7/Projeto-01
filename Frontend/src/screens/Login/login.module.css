@@ -6,11 +6,11 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: black;
+    background-color: #eee;
 }
 
 .main {
-    background-color: #999;
+    background-color: #fff;
     width: 40vw;
     padding: 2%;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
@@ -24,10 +24,15 @@
 }
 
 .form input {
-    background-color: #999;
-    border: 3px;
-    border-color: rgb(0, 0, 0);
-    color: #000000;
+    flex: 1;
+    height: 48px;
+    margin-bottom: 15px;
+    padding: 0 20px;
+    color: #777;
+    font-size: 15px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 12px;
 }
 
 .formTitle {
@@ -35,20 +40,37 @@
     flex-direction: column;
 }
 
+.form p {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #999;
+}
+
+.form p a {
+    text-decoration: none;
+}
+
+.form p a:hover {
+    color: #3d3fc4;
+}
+
 .error {
     color: #b31010;
 }
 
 .button {
-    background-color: #b42121;
-    border-style: none;
-    border-radius: 8px;
-    width: 5vw;
-    padding: 0 0;
+    color: #fff;
+    font-size: 20px;
+    background: #636dfc;
+    height: 56px;
+    border: 0;
+    border-radius: 5px;
+    width: 100%;
 }
 
 .button:hover {
-    background-color: #c43d3d;
+    background-color: #3d3fc4;
 }
 
 input:-webkit-autofill {

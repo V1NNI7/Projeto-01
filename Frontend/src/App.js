@@ -10,26 +10,9 @@ import userslist from './screens/Users'
 import Error from './screens/Error'
 
 
-/* const App = () => {
+const App = () => {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/register" component={Register} />
-        <Route path="/login" component={Login} />
-      </Switch>
-    </BrowserRouter>
-  );
-}; */
-
-export class App extends React.Component {
-  constructor(props) {
-      super(props);
-  }
-  
-  render() {
-      return (
-        <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/register" component={Register} />
@@ -39,8 +22,7 @@ export class App extends React.Component {
           <Route path="/errorpage" component={Error} />
         </Switch>
       </BrowserRouter>
-      );
-  }
-  }
+  )
+}
 
 export default App;
