@@ -5,7 +5,7 @@ import api from '../../services/api';
 import classes from './users.module.css'
 
 const UserList = () => {
-    const [users, setusers] = useState([]);
+    const [users, setUsers] = useState([]);
     const [search, setSearch] = useState('');
 
     const loadingusers = async () => {
@@ -13,10 +13,10 @@ const UserList = () => {
         if (search === '')
             response = await api.get(`/users`);
         else
-            response = await api.get(`/users/nome/${search}`); //Chave de busca da API
-        setusers([]);
+            response = await api.get(`/users/id/${search}`); //Chave de busca da API
+        setUsers([]);
         if (response.data)
-            setusers(response.data);
+            setUsers(response.data);
     };
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const UserList = () => {
     return (
         <>
             <GlobalMenu />
-            {/* <div>
+            <div>
                 <input
                     id="search"
                     name="search"
@@ -35,7 +35,7 @@ const UserList = () => {
                     value={search}
                     onChange={(e) => { setSearch(e.target.value) }}
                 />
-            </div> */}
+            </div>
             <div>
                 <div>
                     <div>
@@ -54,3 +54,4 @@ const UserList = () => {
 }
 
 export default UserList;
+

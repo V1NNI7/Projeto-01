@@ -35,6 +35,10 @@
     border-radius: 12px;
 }
 
+.form div {
+    display: flex;
+}
+
 .formTitle {
     display: flex;
     flex-direction: column;

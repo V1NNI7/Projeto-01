@@ -5,9 +5,9 @@ const sha256 = require('js-sha256');
 const verifyJWT = require('../middlewares/auth');
 
 router.get('/', /* verifyJWT, */ async (req, res) => {
-    const users =  await User.findAll({
+    const users = await User.findAll({
     });
-    
+
     res.status(200).json(users);
 });
 
@@ -15,6 +15,24 @@ router.get('/:id', /* verifyJWT,*/ async (req, res) => {
     const users = await User.findAll({
         where: {
             id: req.params.id
+        }
+    });
+    res.status(200).json(users)
+});
+
+router.get('/id/:id', async (req, res) => {
+    const users = await User.findAll({
+        where: {
+            id: req.params.id
+        }
+    });
+    res.status(200).json(users)
+});
+
+router.get('/username/:username', async (req, res) => {
+    const users = await User.findAll({
+        where: {
+            username: req.params.username
         }
     });
     res.status(200).json(users)
@@ -34,7 +52,7 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
     const users = await User.update(req.body, {
         where: {
-            id: req.params.id 
+            id: req.params.id
         }
     });
     res.status(200).json('Atualizado com sucesso!')
@@ -43,7 +61,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     const users = await User.destroy({
         where: {
-        id: req.params.id
+            id: req.params.id
         }
     });
     res.status(200).json(`Usuário deletado com sucesso!`)

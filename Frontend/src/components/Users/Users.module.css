@@ -1,24 +1,29 @@
 @charset "utf-8";
 
-
-.body {
-    list-style-type: none;
-    justify-content: center;
-    display: flex;
+*{
+    margin:0;
+    padding:0;
+    border:0;
 }
 
-.userslist {
-    background-color: rgb(138, 138, 138);
-    color: black;
-    width: 40vw;
-    height: 30vh;
-}
-
-.button {
-    color: white !important;
-    padding: 4px;
-    margin-left: 20px;
-    border-style: none;
-    background-color: #dd4a4a;
+.usersList {
+    margin-top: 15px;
+    width: 25%;
+    padding-right: var(--bs-gutter-x,.75rem);
+    padding-left: var(--bs-gutter-x,.75rem);
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #ddd;
+    line-height: 2.2rem;
     border-radius: 8px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.281);
 }
+
+.id, .name, .username, .email {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+
+
