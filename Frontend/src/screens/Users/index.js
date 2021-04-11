@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import GlobalMenu from '../../components/GlobalMenu';
 import ListUsers from '../../components/Users';
 import api from '../../services/api';
-import classes from './users.module.css'
+
 
 const UserList = () => {
     const [users, setUsers] = useState([]);
@@ -13,7 +13,7 @@ const UserList = () => {
         if (search === '')
             response = await api.get(`/users`);
         else
-            response = await api.get(`/users/id/${search}`); //Chave de busca da API
+            response = await api.get(`/users/search/${search}`); //Chave de busca da API
         setUsers([]);
         if (response.data)
             setUsers(response.data);

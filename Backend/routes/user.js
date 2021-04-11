@@ -29,10 +29,29 @@ router.get('/id/:id', async (req, res) => {
     res.status(200).json(users)
 });
 
+router.get('/search/:id', async (req, res) => {
+    const users = await User.findAll({
+        where: {
+            id: req.params.id,
+            
+        }
+    });
+    res.status(200).json(users)
+});
+
 router.get('/username/:username', async (req, res) => {
     const users = await User.findAll({
         where: {
             username: req.params.username
+        }
+    });
+    res.status(200).json(users)
+});
+
+router.get('/email/:email', async (req, res) => {
+    const users = await User.findAll({
+        where: {
+            email: req.params.email
         }
     });
     res.status(200).json(users)
