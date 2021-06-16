@@ -69,8 +69,15 @@
     background-color: #3d3fc4;
   }
 
-  .body h1 {
+  .body h2 {
     text-align: center;
+  }
+
+  .messageError {
+    text-align: center;
+    border: 3px #ff0000 solid;
+    color: #ff0000;
+    margin-bottom: 20px;
   }
 
   h1 a {

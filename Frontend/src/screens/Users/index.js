@@ -1,26 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import GlobalMenu from '../../components/GlobalMenu';
 import ListUsers from '../../components/Users';
 import api from '../../services/api';
-
-
+    
 const UserList = () => {
     const [users, setUsers] = useState([]);
     const [search, setSearch] = useState('');
 
-    const loadingusers = async () => {
-        let response;
-        if (search === '')
-            response = await api.get(`/users`);
-        else
-            response = await api.get(`/users/search/${search}`); //Chave de busca da API
-        setUsers([]);
-        if (response.data)
-            setUsers(response.data);
-    };
+    const deleteUsers = async (id) => {
+        const response = await api.delete(`/users/${id}`)
+        if(response.data) {
+            alert('Usuário deletado com sucesso!')
+            await loadingUsers();
+        }
+        else {
+            alert('Não foi possivel deletar o usuário!')
+        }
+    }
+
+    const updateUsers = async (id) => {
+        const response = await api.put(`/users/${id}`)
+    }
+
+    const loadingUsers = useCallback(async () => {
+        try {
+            const response = await api.get('/users');
+            if (response.data) setUsers(response.data);
+        } catch (error) {
+            alert(`Ocorreu uma falha de comunicação com a API! ${error}`)
+        }
+    }, []);
 
     useEffect(() => {
-        loadingusers();
+        loadingUsers();
     }, [search]);
 
     return (
@@ -43,6 +55,8 @@ const UserList = () => {
                             return (
                                 <div key={u.id}>
                                     <ListUsers user={u} />
+                                    <button onClick={() => deleteUsers(u.id)}>Deletar usuário</button>
+                                    <button onClick={() => updateUsers(u.id)}>Atualizar dados</button>
                                 </div>
                             );
                         })}

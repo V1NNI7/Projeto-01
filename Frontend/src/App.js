@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
           /*  Screens */
 import Register from './screens/Register';
-import Home from './screens/Home'
-import Login from './screens/Login'
-import loginHome from './screens/Login_Home'
-import userslist from './screens/Users'
+import Home from './screens/Home';
+import Login from './screens/Login';
+import userslist from './screens/Users';
+import userConfig from './screens/ConfigUser';  
 
 const App = () => {
   return (
@@ -15,8 +15,8 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
-          <Route path="/home" component={loginHome} />
           <Route path="/userslist" component={userslist} />
+          <Route path="/userconfig" component={userConfig} />
         </Switch>
       </BrowserRouter>
   )

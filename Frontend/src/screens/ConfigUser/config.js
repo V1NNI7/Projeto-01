@@ -1,15 +1,11 @@
-import React, { useState, Fragment } from 'react';
+import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import classes from './register.module.css';
+import classes from './config.module.css';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api'
-import GlobalMenu from '../../components/GlobalMenu';
 
-
-const Register = () => {
-    const [modalShow, setModalShow] = useState(false);
-
+const Config = () => {
     const history = useHistory();
     const formik = useFormik({
         initialValues: {
@@ -37,13 +33,13 @@ const Register = () => {
                     username: values.username,
                 };
                 if (values.password === values.passwordConfirmation) { /* Confirmação de senha */
-                    const response = await api.post('users', user);
+                    const response = await api.put('users/:id', user);
                     if (response.data) {
-                        history.push('/login')
+                        history.push('/home')
                     }
                 }
                 else {
-                    alert("As senhas devem ser iguais!")
+                    alert('As senhas devem ser iguais')
                 }
 
 
@@ -55,10 +51,9 @@ const Register = () => {
 
     return (
         <>
-            <GlobalMenu />
             <body className={`${classes.body}`}>
                 <main className={`${classes.main}`}>
-                    <h2>Cadastro</h2>
+                    <h2>Redefinição de senha do usuário</h2>
                     <form onSubmit={formik.handleSubmit} className={`${classes.form}`}>
                         <div>
                             <label htmlFor="name"></label>
@@ -136,7 +131,7 @@ const Register = () => {
                             {formik.touched.password && formik.errors.password ? <label htmlFor="passwordConfirmation" className={`${classes.error}`}>{formik.errors.password}</label> : null}
                         </div>
 
-                        <button className={`mt-4 ${classes.button}`} type="submit" name="submit" id="submit">Cadastrar grátis</button>
+                        <button className={`mt-4 ${classes.button}`} type="submit" name="submit" id="submit">Redefinir</button>
 
                     </form>
                     <hr className={`divisor mt-4 mb-4`} />
@@ -148,4 +143,4 @@ const Register = () => {
 };
 
 
-export default Register;
+export default Config;

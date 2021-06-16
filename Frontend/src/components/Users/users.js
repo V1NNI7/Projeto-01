@@ -8,22 +8,18 @@ const ListUsers = (props) => {
             <body className={classes.body}>
                 <main className={classes.main}>
                     <div className={`${classes.usersList}`}>
-                        <div className={classes.id}>
-                            <p><strong>ID:</strong></p>
-                            <p>{props.user.id}</p>
-                        </div>
-                        <div className={classes.name}>
-                            <p><strong>Nome:</strong></p>
-                            <p>{props.user.name}</p>
-                        </div>
-                        <div className={classes.username}>
-                            <p><strong>Nome de usuário:</strong></p>
-                            <p>{props.user.username}</p>
-                        </div>
-                        <div className={classes.email}>
-                            <p><strong>Email:</strong></p>
-                            <p>{props.user.email}</p>
-                        </div>
+                        <ul>
+                            <li>
+                                <h3>ID:</h3>
+                                <h5>{props.user.id}</h5>
+                                <h3>Nome:</h3>
+                                <h5>{props.user.name}</h5>
+                                <h3>Nome de usuário:</h3>
+                                <h5>{props.user.username}</h5>
+                                <h3>Email:</h3>
+                                <h5>{props.user.email}</h5>
+                            </li>
+                        </ul>
                     </div>
                 </main>
             </body>

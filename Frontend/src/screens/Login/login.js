@@ -7,15 +7,16 @@ import api from '../../services/api';
 import GlobalMenu from '../../components/GlobalMenu';
 
 
+
 const Login = () => {
     const history = useHistory();
     const validate = (values) => {
+
         const errors = {};
         if (!values.name) {
             errors.name = 'Obrigatório';
         }
         return errors;
-
     }
 
     const formik = useFormik({
@@ -28,7 +29,6 @@ const Login = () => {
             email: Yup.string().email('E-mail inválido').required('*'),
             password: Yup.string().required('*'),
         }),
-
         onSubmit: async (values) => {
             try {
                 const login = {
@@ -82,15 +82,14 @@ const Login = () => {
                             />
                             {formik.touched.password && formik.errors.password ? <label htmlFor="password" className={`${classes.error}`}>{formik.errors.password}</label> : null}
                         </div>
+
                         <button className={`mt-4 ${classes.button}`} type="submit">Entrar</button>
-                            <hr className={`divisor mt-4 mb-4`} />
-                            <p>Não possui conta? <Link to="/register">Cadastre-se</Link> agora!</p>
+                        <hr className={`divisor mt-4 mb-4`} />
+                        <p>Não possui conta? <Link to="/register">Cadastre-se</Link> agora!</p>
                     </form>
                 </main>
             </body>
-
         </>
-
     )
 };
 
